@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClasses" :style="avatarStyles">JS</div>
+  <div :class="avatarClasses" :style="avatarStyles">JS</div>
 </template>
 
 <script lang="ts">
@@ -20,17 +20,17 @@ export default class Avatar extends Vue {
   @Prop({ type: Boolean, default: false })
   tile!: boolean;
 
-  get containerClasses() {
+  get avatarClasses() {
     return ["avatar", { rounded: this.rounded, tile: this.tile }];
   }
 
-  get backgroundColor(): IAvatarStyles {
+  get avatarBackgroundColor(): IAvatarStyles {
     return {
       backgroundColor: this.color,
     };
   }
 
-  get containerStyles(): IAvatarStyles {
+  get avatarSize(): IAvatarStyles {
     return {
       width: `${this.size}px`,
       height: `${this.size}px`,
@@ -39,8 +39,8 @@ export default class Avatar extends Vue {
 
   get avatarStyles(): IAvatarStyles {
     return {
-      ...this.containerStyles,
-      ...this.backgroundColor,
+      ...this.avatarSize,
+      ...this.avatarBackgroundColor,
     };
   }
 }
