@@ -17,8 +17,11 @@ export default class Avatar extends Vue {
   @Prop({ type: String, default: "48px" })
   size!: string;
 
+  @Prop({ type: Boolean, default: false })
+  tile!: boolean;
+
   get containerClasses() {
-    return ["avatar", { rounded: this.rounded }];
+    return ["avatar", { rounded: this.rounded, tile: this.tile }];
   }
 
   get backgroundColor(): IAvatarStyles {
