@@ -8,26 +8,29 @@ import { IAvatarStyles } from "@/components/Avatar/types";
 
 @Component
 export default class Avatar extends Vue {
-  @Prop({ type: String, default: "48" })
-  size!: string;
-
   @Prop({ type: String, default: "#E80459" })
   color!: string;
 
-  get containerClasses(): string {
-    return "avatar";
+  @Prop({ type: Boolean, default: false })
+  rounded!: boolean;
+
+  @Prop({ type: String, default: "48px" })
+  size!: string;
+
+  get containerClasses() {
+    return ["avatar", { rounded: this.rounded }];
+  }
+
+  get backgroundColor(): IAvatarStyles {
+    return {
+      backgroundColor: this.color,
+    };
   }
 
   get containerStyles(): IAvatarStyles {
     return {
       width: `${this.size}px`,
       height: `${this.size}px`,
-    };
-  }
-
-  get backgroundColor(): IAvatarStyles {
-    return {
-      backgroundColor: this.color,
     };
   }
 
