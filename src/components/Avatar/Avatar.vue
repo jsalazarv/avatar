@@ -1,5 +1,7 @@
 <template>
-  <div :class="avatarClasses" :style="avatarStyles">JS</div>
+  <div :class="avatarClasses" :style="avatarStyles">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,7 +16,7 @@ export default class Avatar extends Vue {
   @Prop({ type: Boolean, default: false })
   rounded!: boolean;
 
-  @Prop({ type: String, default: "48px" })
+  @Prop({ type: String, default: "48" })
   size!: string;
 
   @Prop({ type: Boolean, default: false })
@@ -46,6 +48,6 @@ export default class Avatar extends Vue {
 }
 </script>
 
-<style scoped lang="css">
-@import "styles.css";
+<style scoped lang="scss">
+@import "styles";
 </style>

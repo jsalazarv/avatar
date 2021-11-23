@@ -1,18 +1,15 @@
 .avatar {
-  width: 48px;
-  height: 48px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
   background: gray;
   border-radius: 50%;
   overflow: hidden;
-}
+  &.rounded {
+    border-radius: 4px;
+  }
 
-.rounded {
-  border-radius: 4px;
-}
-
-.tile {
-  border-radius: 0;
+  &.tile {
+    border-radius: 0;
+  }
 }
