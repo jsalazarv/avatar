@@ -5,40 +5,33 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { IAvatarStyles } from "@/components/Avatar/types";
-
+import Vue from "vue";
+import { Component, Prop } from "vue-property-decorator";
+import { IAvatarStyles } from "./types";
 @Component
-export default class Avatar extends Vue {
+export default class VAvatar extends Vue {
   @Prop({ type: String, default: "#E80459" })
-  color!: string;
-
+  color?: string;
   @Prop({ type: Boolean, default: false })
-  rounded!: boolean;
-
+  rounded?: boolean;
   @Prop({ type: String, default: "48" })
-  size!: string;
-
+  size?: string;
   @Prop({ type: Boolean, default: false })
-  tile!: boolean;
-
+  tile?: boolean;
   get avatarClasses() {
-    return ["avatar", { rounded: this.rounded, tile: this.tile }];
+    return ["v-avatar", { tile: this.tile, rounded: this.rounded }];
   }
-
   get avatarBackgroundColor(): IAvatarStyles {
     return {
       backgroundColor: this.color,
     };
   }
-
   get avatarSize(): IAvatarStyles {
     return {
       width: `${this.size}px`,
       height: `${this.size}px`,
     };
   }
-
   get avatarStyles(): IAvatarStyles {
     return {
       ...this.avatarSize,

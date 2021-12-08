@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <avatar />
+    <v-avatar />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Avatar from "@/components/Avatar/Avatar.vue";
+import VAvatar from "@/components/VAvatar/VAvatar.vue";
 
 @Component({
   components: {
-    Avatar,
+    VAvatar,
   },
 })
 export default class App extends Vue {}
