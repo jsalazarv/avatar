@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <v-avatar />
-    <v-sheet />
+    <v-sheet height="70" width="230" rounded color="white" outlined>
+      <v-avatar />
+    </v-sheet>
   </div>
 </template>
 

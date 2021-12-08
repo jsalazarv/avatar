@@ -1,12 +1,61 @@
 <template>
-  <div>Vue Sheet</div>
+  <div :class="sheetClasses" :style="sheetStyles">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { Component } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
+
 @Component
-export default class VSheet extends Vue {}
+export default class VSheet extends Vue {
+  @Prop({ type: String, default: "#E80459" })
+  color?: string;
+  @Prop({ type: Boolean, default: false })
+  outlined?: boolean;
+  @Prop({ type: Boolean, default: false })
+  rounded?: boolean;
+  @Prop({ type: Boolean, default: false })
+  shaped?: boolean;
+  @Prop({ type: String, default: "100" })
+  width?: string;
+  @Prop({ type: String, default: "100" })
+  height?: string;
+
+  get sheetClasses() {
+    return [
+      "v-sheet",
+      { outlined: this.outlined, rounded: this.rounded, shaped: this.shaped },
+    ];
+  }
+
+  get sheetBackgroundColor() {
+    return {
+      backgroundColor: this.color,
+    };
+  }
+
+  get sheetWidth() {
+    return {
+      width: `${this.width}px`,
+    };
+  }
+
+  get sheetHeight() {
+    return {
+      height: `${this.height}px`,
+    };
+  }
+
+  get sheetStyles() {
+    return {
+      ...this.sheetBackgroundColor,
+      ...this.sheetWidth,
+      ...this.sheetHeight,
+    };
+  }
+}
 </script>
 
 <style scoped lang="scss">
