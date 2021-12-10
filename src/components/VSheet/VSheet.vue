@@ -24,7 +24,7 @@ export default class VSheet extends Vue {
   @Prop({ type: String, default: "100" })
   height?: string;
 
-  get sheetClasses() {
+  get sheetClasses(): Array<string | ISheetClasses> {
     return [
       "v-sheet",
       { outlined: this.outlined, rounded: this.rounded, shaped: this.shaped },
