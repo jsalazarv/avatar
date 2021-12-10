@@ -7,6 +7,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
+import { ISheetStyles, ISheetClasses } from "./types";
 
 @Component
 export default class VSheet extends Vue {
@@ -30,25 +31,25 @@ export default class VSheet extends Vue {
     ];
   }
 
-  get sheetBackgroundColor() {
+  get sheetBackgroundColor(): ISheetStyles {
     return {
       backgroundColor: this.color,
     };
   }
 
-  get sheetWidth() {
+  get sheetWidth(): ISheetStyles {
     return {
       width: `${this.width}px`,
     };
   }
 
-  get sheetHeight() {
+  get sheetHeight(): ISheetStyles {
     return {
       height: `${this.height}px`,
     };
   }
 
-  get sheetStyles() {
+  get sheetStyles(): ISheetStyles {
     return {
       ...this.sheetBackgroundColor,
       ...this.sheetWidth,
