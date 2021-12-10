@@ -1,0 +1,12 @@
+.v-sheet {
+  border-radius: 0;
+  &.rounded {
+    border-radius: 4px;
+  }
+  &.shaped {
+    border-radius: 24px 0;
+  }
+  &.outlined {
+    border: thin solid rgba(0, 0, 0, 0.12);
+  }
+}
